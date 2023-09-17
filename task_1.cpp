@@ -22,11 +22,9 @@ int main(){ //выражение,показывающее,что в програ
         cout<<" ";
     }
     cout<<endl;
-    cout<<"Среднее арифметическое до вставки"<<endl;
-    cout<<Sr_arif(arr,n)<<endl;
+    cout<<"Среднее арифметическое до вставки"<<endl<<Sr_arif(arr,n)<<endl;
     push(arr,&n);
-    cout<<"Среднее арифметическое после вставки"<<endl;
-    cout<<Sr_arif(arr,n)<<endl;
+    cout<<"Среднее арифметическое после вставки"<<endl<<Sr_arif(arr,n)<<endl;
     cout<<"Массив после вставки"<<endl;
     for (i = 0; i < n; i++)
     {
