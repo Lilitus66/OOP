@@ -1,11 +1,12 @@
-#include <iostream>
-#include <ctime>
-using namespace std;
+#include <iostream> //библиотечный заголовочный файл для работы с потоками ввода-вывода
+#include <ctime> //библиотека для работы со временем и датой
+using namespace std; //использовать пространство имен std
 int i;
-void push(int *arr,int *pn);
-int Sr_arif(int *arr,int n);
-int main(){
-    srand(time(NULL));
+void push(int *arr,int *pn); 
+int Sr_arif(int *arr,int n); 
+void Max(int *arr,int n); 
+int main(){ //выражение,показывающее,что в программе присутсвует главная функция,без неё компилятор выдаст ошибку
+    srand(time(NULL));//srand-установка базы генератора псевдослучайных чисел.time ( NULL ) ,которая считывает текущее время на компьютере и возвращает кол-во секунд прошедших от полуночи 1 янаря 1970 преобразоаных в тип unsigned int
     int n;
     cout<<"Укажите количество элементов"<<endl;
     cin>>n;
@@ -33,7 +34,8 @@ int main(){
         cout<<" ";
     }
     cout<<endl;
-    delete [] arr;   
+    delete [] arr;  
+    return 0; 
 }
 
 void Max(int *arr,int n){
