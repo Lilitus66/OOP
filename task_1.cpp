@@ -1,9 +1,7 @@
 #include <iostream>
-#include <ctime>
 using namespace std;
-void push(int *arr,int n);
+void push(int *arr,int *pn);
 int main(){
-    srand(time(NULL));
     int n;
     cin>>n;
     int *arr= new int[n];
@@ -11,16 +9,23 @@ int main(){
     {
        cin>>arr[i];
     }
+    push(arr,&n);
+    for (int i = 0; i < n; i++)
+    {
+        cout<<arr[i];
+        cout<<" ";
+    }
+    
     
 }
 
-void push(int *arr,int n){
-    for (int i = 0; i < n; i++)
+void push(int *arr,int *pn){
+    for (int i = 0; i < *pn; i++)
     {
         if (arr[i]>0)
         {
-            n++;
-            for (int j = n; j >i; j--)
+            (*pn)++;
+            for (int j = *pn-1; j >i; j--)
             {
                 arr[j]=arr[j-1];
             }
