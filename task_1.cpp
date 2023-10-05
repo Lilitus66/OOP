@@ -2,7 +2,7 @@
 #include <ctime> //библиотека для работы со временем и датой
 using namespace std; //использовать пространство имен std
 int i;
-void push(int *arr,int *pn); 
+void push(int*& arr,int &n); 
 int Sr_arif(int *arr,int n); 
 int Max(int *arr,int n); 
 int main(){ //выражение,показывающее,что в программе присутсвует главная функция,без неё компилятор выдаст ошибку
@@ -15,6 +15,7 @@ int main(){ //выражение,показывающее,что в програ
     {
        arr[i]=rand()%100-50;
     }
+    cout<<arr<<endl;
     cout<<"Массив до вставки"<<endl;
     for (i = 0; i < n; i++)
     {
@@ -23,7 +24,7 @@ int main(){ //выражение,показывающее,что в програ
     }
     cout<<endl;
     cout<<"Среднее арифметическое до вставки"<<endl<<Sr_arif(arr,n)<<endl;
-    push(arr,&n);
+    push(arr,n);
     cout<<"Среднее арифметическое после вставки"<<endl<<Sr_arif(arr,n)<<endl;
     cout<<"Массив после вставки"<<endl;
     for (i = 0; i < n; i++)
@@ -32,6 +33,9 @@ int main(){ //выражение,показывающее,что в програ
         cout<<" ";
     }
     cout<<endl;
+
+    
+    cout<<arr<<endl;
     delete [] arr;  
     return 0; 
 }
@@ -60,8 +64,8 @@ int Sr_arif(int *arr,int n){
     
 }
 
-void push(int *arr,int *pn){
-    for (i = 0; i < *pn; i++)
+void push(int*& arr,int &n){
+   /* for (i = 0; i < *pn; i++)
     {
         if (arr[i]>0)
         {
@@ -72,7 +76,23 @@ void push(int *arr,int *pn){
             }
             arr[i+1]=0;  
         }   
+    } */
+    int count;
+    for(i=0; i>n;i++){
+        if (arr[i]>0)
+            ++count;
     }
-    
+    int m=n+count;
+    int *b=new int[m];
+    for (int i = 0,j=0; i < n; i++)
+    {
+        b[j]=arr[i];
+        if (arr[i]>0)
+            b[++j]=0;
+        ++j;
+    }
+    delete [] arr;
+    arr=b;
+    n+=count;   
 }
 
