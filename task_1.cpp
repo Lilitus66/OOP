@@ -15,7 +15,7 @@ int main(){ //выражение,показывающее,что в програ
     {
        arr[i]=rand()%100-50;
     }
-    cout<<arr<<endl;
+
     cout<<"Массив до вставки"<<endl;
     for (i = 0; i < n; i++)
     {
@@ -33,9 +33,6 @@ int main(){ //выражение,показывающее,что в програ
         cout<<" ";
     }
     cout<<endl;
-
-    
-    cout<<arr<<endl;
     delete [] arr;  
     return 0; 
 }
@@ -77,10 +74,12 @@ void push(int*& arr,int &n){
             arr[i+1]=0;  
         }   
     } */
-    int count;
-    for(i=0; i>n;i++){
+    int count=0;
+    for(i=0; i<n;i++){
         if (arr[i]>0)
-            ++count;
+        {
+            count++;
+        }
     }
     int m=n+count;
     int *b=new int[m];
@@ -93,6 +92,6 @@ void push(int*& arr,int &n){
     }
     delete [] arr;
     arr=b;
-    n+=count;   
+    n=m;   
 }
 
